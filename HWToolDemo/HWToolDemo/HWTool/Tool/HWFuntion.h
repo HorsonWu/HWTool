@@ -7,7 +7,7 @@
 //
 
 
-#import "NSObject+HW.h"
+#import <Foundation/Foundation.h>
 /**
  *	@brief	枚举，屏幕类型；按屏幕尺寸区分
  *
@@ -143,14 +143,7 @@ typedef NS_ENUM(NSInteger, HorsonScreenType)
  */
 +(NSDictionary*)parseURLParams:(NSString *)query;
 
-/**
- *	@brief	进行URL转码的方法
- *
- *	@param 	aString 	需要进行URL转吗的字符串
- *
- *	@return	URL转码以后的字符串
- */
-+(NSString *)urlEcodingFromString:(NSString *)aString;
+
 
 /**
  *	@brief	获取应用最新版本的信息
@@ -206,46 +199,6 @@ typedef NS_ENUM(NSInteger, HorsonScreenType)
  *
  */
 +(NSInteger)getTheSecondfromDate:(NSString*)firstDate andDate:(NSString*)secondDate;
-@end
-#pragma marking -- 字符串验证部分的处理
-@interface HWFuntion (ValidationString)
-/**
- * @breif 验证字符串是否符合邮箱格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validateEmail:(NSString *)email;
-/**
- * @breif 验证字符串是否符合手机格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validateMobile:(NSString *)mobile;
-/**
- * @breif 验证字符串是否符合英文用户名格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validateUserName:(NSString *)name;
-/**
- * @breif 验证字符串是否符合密码格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validatePassword:(NSString *)passWord;
-/**
- * @breif 验证字符串是否符合中文昵称格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validateNickname:(NSString *)nickname;
-/**
- * @breif 验证字符串是否符合QQ号码格式
- * @email 验证的字符串
- * @return BOOL  YES：表示符合，NO：表示不符合
- */
-+ (BOOL) validateQQNumber:(NSString *)QQNumber;
-
 @end
 
 

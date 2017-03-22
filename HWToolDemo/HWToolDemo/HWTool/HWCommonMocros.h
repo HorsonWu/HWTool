@@ -26,20 +26,16 @@
 #define WEAKSELF __weak __typeof(&*self)weakSelf = self;
 
 ///16进制RGB创建UIColor
-#define UIColorFromRGB(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
+#define UIColorFromRGB(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]`
 
 ///根据RGB色值调颜色
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define MainColor                   UIColorFromRGB(0xff9600, 1.0)
 #define NavBarBackgroundColor       UIColorFromRGB(0xff9600, 1.0)
 #define ViewBackgroundColor         UIColorFromRGB(0xeeeeee, 1.0)
-#define lineBackgroundColor         UIColorFromRGB(0xdfdfdf, 1.0)
-
-
+#define LineBackgroundColor         UIColorFromRGB(0xdfdfdf, 1.0)
 #define TitleColor                  UIColorFromRGB(0x333333, 1.0)
 #define ContentColor                UIColorFromRGB(0x666666, 1.0)
-#define OtherContentColor           UIColorFromRGB(0x999999, 1.0)
-#define TitleHighlightColor         UIColorFromRGB(0xfb5500, 1.0)
 
 #define TitleFontStyle              [UIFont systemFontOfSize:17];
 #define ContentFontStyle            [UIFont systemFontOfSize:14];

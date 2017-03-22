@@ -456,13 +456,6 @@
 }
 
 
-#pragma mark -- URL转码
-+(NSString *)urlEcodingFromString:(NSString *)aString
-{
-    return [aString urlEncodeString];
-}
-
-
 #pragma mark -- 获取应用最新版本的信息
 +(NSDictionary *)getTheLastVersionInfoWithTheAppUrl:(NSString *)urlString{
     NSDictionary *dic = [[NSDictionary alloc] init];
@@ -585,55 +578,7 @@
 
 @end
 
-@implementation HWFuntion (ValidationString)
-#pragma mark -- 邮箱的验证
-+(BOOL) validateEmail:(NSString *)email
-{
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:email];
-}
 
-
-#pragma mark -- 手机号码验证
-+ (BOOL) validateMobile:(NSString *)mobile
-{
-    //手机号以13， 15，18开头，八个 \d 数字字符
-    NSString *phoneRegex = @"^1[3|4|5|8][0-9]\\d{8}$";
-    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
-    return [phoneTest evaluateWithObject:mobile];
-}
-#pragma mark -- 英文用户名验证
-+ (BOOL) validateUserName:(NSString *)name
-{
-    NSString *userNameRegex = @"^[A-Za-z0-9]{6,20}+$";
-    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
-    return [userNamePredicate evaluateWithObject:name];
-}
-#pragma mark -- 密码验证
-+ (BOOL) validatePassword:(NSString *)passWord
-{
-    NSString *passWordRegex = @"^[a-zA-Z0-9]{6,20}+$";
-    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",passWordRegex];
-    return [passWordPredicate evaluateWithObject:passWord];
-}
-#pragma mark -- 中文昵称验证
-+ (BOOL) validateNickname:(NSString *)nickname
-{
-    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{3,8}$";
-    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
-    return [passWordPredicate evaluateWithObject:nickname];
-}
-
-#pragma mark -- QQ号码验证  腾讯QQ号从10 000 开始
-+ (BOOL) validateQQNumber:(NSString *)QQNumber
-{
-    NSString *qqRegex = @"[1-9][0-9]{4,11}";
-    NSPredicate *qqPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",qqRegex];
-    return [qqPredicate evaluateWithObject:QQNumber];
-}
-
-@end
 
 @implementation HWFuntion (EncryptAndDecrypt)
 #pragma mark -- MD5加密

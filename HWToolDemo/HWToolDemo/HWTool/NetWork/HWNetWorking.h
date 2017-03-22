@@ -1,44 +1,55 @@
 //
-//  HWNetWorking.h
-//  WanZhongLife
+//  HWNetworking.h
+//  HWToolDemo
 //
-//  Created by HorsonWu on 15/10/14.
-//  Copyright © 2015年 com.revenco.company. All rights reserved.
+//  Created by HorsonWu on 2017/3/20.
+//  Copyright © 2017年 elovega. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
-
-@interface HWNetWorking : AFHTTPRequestOperationManager
-
-+ (instancetype)sharedClient;
-
-+ (AFHTTPRequestOperation *)POST:(NSString *)URLString
-                      parameters:(id)parameters
-       constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
-                      completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+#import <Foundation/Foundation.h>
 
 
-+ (AFHTTPRequestOperation *)GET:(NSString *)URLString
-                     parameters:(id)parameters
-                     completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+typedef void (^handleBlock)(BOOL isSucc, id responseObject, NSError * error);
+typedef void (^progressBlock)(float progress);
 
-+ (AFHTTPRequestOperation *)POST:(NSString *)URLString
-                      parameters:(id)parameters
-                      completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+@interface HWNetworking : NSObject
 
+/**
+ *  获取新的实例
+ *  注意：每次网络请求都应该使用新的实例
+ */
++ (instancetype)manager;
 
-+ (AFHTTPRequestOperation *)PUT:(NSString *)URLString
-                     parameters:(id)parameters
-                     completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+/**
+ *  设置请求头
+ */
+- (void)setValue:(id)value forHTTPHeaderField:(NSString *)field;
 
-+ (AFHTTPRequestOperation *)PATCH:(NSString *)URLString
-                       parameters:(id)parameters
-                       completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+/**
+ *  GET
+ */
+- (void)GET:(NSString *)URLString handle:(handleBlock)handle;
 
-+ (AFHTTPRequestOperation *)DELETE:(NSString *)URLString
-                        parameters:(id)parameters
-                        completion:(void (^)(BOOL isSuccess, id responseObject, NSString *errorMessage))completion;
+- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters handle:(handleBlock)handle;
 
--(void)api_download:(id)url filePath:(NSString *)path
-              block:(void (^)(NSArray *posts, NSError *error))block;
+- (void)GET:(NSString *)urlString parameters:(NSDictionary *)parameters progress:(progressBlock)progress handler:(handleBlock)handle;
+
+/**
+ *  POST
+ */
+- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters handle:(handleBlock)handle;
+
+- (void)POST:(NSString *)urlString parameters:(NSDictionary *)parameters progress:(progressBlock)progress handler:(handleBlock)handle;
+
+- (void)POST:(NSString *)URLString jsonData:(NSData *)jsonData handle:(handleBlock)handle;
+
+/*
+ *  Request
+ */
+- (void)REQUEST:(NSURLRequest*)request progress:(progressBlock)progress handler:(handleBlock)handle;
+
+/**
+ *  PUT
+ */
+- (void)PUT:(NSString *)urlString parameters:(NSDictionary *)parameters data:(NSData *)data progress:(progressBlock)progress handler:(handleBlock)handle;
 @end

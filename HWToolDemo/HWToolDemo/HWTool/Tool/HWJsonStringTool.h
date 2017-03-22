@@ -6,7 +6,7 @@
 //  Copyright © 2015年 com.revenco.company. All rights reserved.
 //
 
-#import "NSObject+HW.h"
+#import <Foundation/Foundation.h>
 
 @interface HWJsonStringTool : NSObject
 /**
