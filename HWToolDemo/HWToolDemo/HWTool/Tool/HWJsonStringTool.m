@@ -50,4 +50,23 @@
     
     return dict;
 }
+
+/*
+ * 将字典数组转换为JSON数组
+ */
++ (NSString *)dictionaryArrayToJsonArray:(NSArray<NSDictionary *> *)dicArray {
+    //1. 初始化可变字符串，存放最终生成json字串
+    NSMutableString * jsonString = [[NSMutableString alloc]initWithString:@"["];
+    //2. 遍历数组，取出键值对并按json格式存放
+    for (NSDictionary * dict in dicArray) {
+        
+        NSString * dictJson = [NSString stringWithFormat:@"%@,",[HWJsonStringTool dictionaryToJsonStr:dict]];
+        [jsonString appendString:dictJson];
+    }
+    // 3. 获取末尾逗号所在位置
+    NSRange range = NSMakeRange(jsonString.length - 1, 1);
+    // 4. 将末尾逗号换成结束的]
+    [jsonString replaceCharactersInRange:range withString:@"]"];
+    return jsonString;
+}
 @end

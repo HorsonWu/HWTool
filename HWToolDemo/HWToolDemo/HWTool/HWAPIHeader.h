@@ -11,22 +11,30 @@
 #define HWAPIHeader_h
 
 
-//---------分类-----------
-#import "HWCategory.h"
-//---------常用方法-----------
+#pragma mark -- 常用方法
 #import "HWFuntion.h"
 #import "HWJsonStringTool.h"
 
-//---------常用的网络请求操作-----------
-#import "HWNetworking.h"
-
-
-//---------常用的视图操作-----------
+#pragma mark -- 常用的视图操作
 #import "HWViewTool.h"
 
-//---------常用的模型嵌套-----------
-#import "HWModel.h"
+#pragma mark -- Foudation的引申
+#import "HWFoudationHeader.h"
 
+#pragma mark -- UIKit的引申
+#import "HWKitHeader.h"
+
+#pragma mark -- 音视频的一些操作
+#import "HWVideoAndAudioHeader.h"
+
+#pragma mark -- 常用的网络请求操作
+#import "HWNetwork.h"
+#import "HWNetworking.h"
+#import "HWURLProtocol.h"
+#import "NSString+HWNet.h"
+
+#pragma mark -- 路由操作
+#import "HWRouter.h"
 
 
 #endif /* HWAPIHeader_h */

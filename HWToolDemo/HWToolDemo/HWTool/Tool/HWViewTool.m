@@ -37,4 +37,50 @@
     
 }
 
+
++ (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    //如果是Nav
+    if ([result isKindOfClass:[UINavigationController class]]) {
+        UINavigationController * nav = (UINavigationController *)result;
+        return nav.topViewController;
+    }
+    
+    return result;
+}
+
++ (void)cleanKeywindow {
+    NSArray * views = [UIApplication sharedApplication].keyWindow.subviews;
+    if (views.count == 1) {
+        return;
+    }
+    for (NSInteger i = 1; i < views.count; i ++) {
+        [views[i] removeFromSuperview];
+    }
+}
+
 @end

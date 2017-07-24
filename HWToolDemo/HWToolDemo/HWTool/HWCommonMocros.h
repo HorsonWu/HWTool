@@ -9,7 +9,8 @@
 #ifndef HWCommonMocros_h
 #define HWCommonMocros_h
 
-
+///屏幕大小
+#define SCREEN_BOUNDS [[UIScreen mainScreen] bounds]
 ///屏幕宽度
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 ///屏幕高度
@@ -17,6 +18,14 @@
 ///判断是否是横屏
 #define IS_INTERFACE_THWARTWISE_IN SCREEN_WIDTH>SCREEN_HEIGHT?YES:NO
 
+
+//按比例缩放值
+#define ScaleRatio  SCREEN_WIDTH / 320.0
+#define scale(x)    (x) * ScaleRatio
+
+//公共值
+#define WZNavHeight    64.0
+#define WZTabbarHeight 49.0
 
 ///获取系统版本号
 #define SYSTEMVERSION [[[UIDevice currentDevice] systemVersion] floatValue]
@@ -37,10 +46,12 @@
 #define TitleColor                  UIColorFromRGB(0x333333, 1.0)
 #define ContentColor                UIColorFromRGB(0x666666, 1.0)
 
+#define ClearColor      [UIColor clearColor]
+#define WhiteColor      [UIColor whiteColor]
+#define BlackColor      [UIColor blackColor]
+
 #define TitleFontStyle              [UIFont systemFontOfSize:17];
 #define ContentFontStyle            [UIFont systemFontOfSize:14];
-
-
 
 #if (DEBUG || TESTCASE)
 //# define HWLog(fmt, ...) NSLog((@"[File:%s]\n" "[Function:%s]\n" "[Number:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)

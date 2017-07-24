@@ -33,4 +33,13 @@
  *
  */
 +(void)showReminderMessage:(NSString *)message addToView:(UIView *)view hideAfterDelay:(NSTimeInterval)time;
+
+/*
+ * 获取当前控制器
+ */
++ (UIViewController *)getCurrentVC;
+
+//清理窗口的view
++ (void)cleanKeywindow;
+
 @end

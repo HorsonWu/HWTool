@@ -18,4 +18,8 @@
  *  String转Json
  */
 + (NSDictionary *)jsonStringToDictionary:(NSString *)jsonStr;
+/*
+ * 将字典数组转换为JSON数组
+ */
++ (NSString *)dictionaryArrayToJsonArray:(NSArray<NSDictionary *> *)dicArray;
 @end

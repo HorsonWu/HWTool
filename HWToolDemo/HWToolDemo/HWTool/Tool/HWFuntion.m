@@ -436,7 +436,10 @@
     return result;
 }
 
-
++ (NSString *)getClientVersion {
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    return [infoDict objectForKey:@"CFBundleShortVersionString"];
+}
 
 @end
 

@@ -129,6 +129,14 @@ typedef NS_ENUM(NSInteger, HorsonScreenType)
  *	@return	返回当前的控制器
  */
 + (UIViewController *)getCurrentVC;
+
+
+/**
+ *	@brief	获取当前app的版本号
+ *
+ *	@return	返回当前app的版本号
+ */
++ (NSString *)getClientVersion;
 @end
 
 
