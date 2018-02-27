@@ -60,5 +60,14 @@
 # define HWLog(fmt, ...)
 #endif
 
+// 日志输出函数
+#if DEBUG
+#define BASE_ERROR_FUN(error)  HWLog(@"错误信息：%@",error)
+#define BASE_INFO_FUN(info)    HWLog(@"信息：%@",info)
+#else
+#define BASE_ERROR_FUN(error)
+#define BASE_INFO_FUN(info)
+#endif
+
 
 #endif /* HWCommonMocros_h */

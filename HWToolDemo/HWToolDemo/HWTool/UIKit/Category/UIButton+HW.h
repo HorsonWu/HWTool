@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (HW)
+
+/**
+ *  为按钮添加点击间隔 eventTimeInterval秒
+ */
+@property (nonatomic, assign) NSTimeInterval eventTimeInterval;
+
 /*
  * 按钮： 背景为指定颜色，圆角
  */

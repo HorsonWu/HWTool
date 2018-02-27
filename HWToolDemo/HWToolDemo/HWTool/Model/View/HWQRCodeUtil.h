@@ -8,7 +8,7 @@
 /*
  * 使用：
  self.codeUtil = [[WZQRCodeUtil alloc]initWithHandle:^(NSString *codeString) {
- WZLog(@"%@", codeString);
+ HWLog(@"%@", codeString);
  }];
  //默认全屏，若要指定区域，设置scanWidth
  self.codeUtil.scanWidth = 250;
